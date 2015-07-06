@@ -1,15 +1,16 @@
-package de.larsmiesner;
+package de.larsmiesner.services;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import de.larsmiesner.BillingService;
 import de.larsmiesner.objects.CreditCard;
+import de.larsmiesner.Status;
 import de.larsmiesner.objects.Order;
 import de.larsmiesner.objects.OrderElement;
 import de.larsmiesner.objects.Recipt;
+import de.larsmiesner.services.BillingService;
 
 public class BillingServiceTest {
 
