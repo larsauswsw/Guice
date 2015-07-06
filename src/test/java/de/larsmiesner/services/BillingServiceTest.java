@@ -36,7 +36,20 @@ public class BillingServiceTest {
 		assertNotNull(recipt);
 		assertEquals(Status.SUCCESS, recipt.getStatus());
 		
+	}
+	
+	@Test
+	public void testOrderWithWrongCreditCard(){
+		Order testOrder = setupOrder();
+		CreditCard testCard = new CreditCard();
+		testCard.setNumber("XXXXXXX");
+		testCard.setCvc(0);
 		
+		BillingService t = new BillingService();
+		Recipt recipt = t.chargeOrder(testCard, testOrder);
+		
+		assertNotNull(recipt);
+		assertEquals(Status.ERROR, recipt.getStatus());
 		
 	}
 

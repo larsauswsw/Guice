@@ -12,6 +12,8 @@ public class BillingService {
 		
 		if (card.isValid()) {
 			recipt.setStatus(Status.SUCCESS);
+		} else {
+			recipt.setStatus(Status.ERROR);
 		}
 		
 		
