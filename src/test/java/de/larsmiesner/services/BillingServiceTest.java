@@ -24,18 +24,11 @@ public class BillingServiceTest {
 	
 	@Test
 	public void testSuccessfullOrder(){
-		Order testOrder = new Order();
-		OrderElement pizza = new OrderElement();
-		pizza.setPrice(7.5);
-		pizza.setProductName("Pizza 4 Jahreszeiten");
-		OrderElement noodles = new OrderElement();
-		noodles.setPrice(6.5);
-		noodles.setProductName("Penne Spinat");
-		
-		testOrder.addOrderElement(pizza);
-		testOrder.addOrderElement(noodles);
-		
+		Order testOrder = setupOrder();
 		CreditCard testCard = new CreditCard();
+		testCard.setNumber("5493365801128630");
+		testCard.setCvc(999);
+		
 		
 		BillingService t = new BillingService();
 		Recipt recipt = t.chargeOrder(testCard, testOrder);
@@ -45,6 +38,19 @@ public class BillingServiceTest {
 		
 		
 		
+	}
+
+	private Order setupOrder() {
+		Order testOrder = new Order();
+		OrderElement pizza = new OrderElement();
+		pizza.setPrice(7.5);
+		pizza.setProductName("Pizza 4 Jahreszeiten");
+		OrderElement noodles = new OrderElement();
+		noodles.setPrice(6.5);
+		noodles.setProductName("Penne Spinat");
+		testOrder.addOrderElement(noodles);
+		testOrder.addOrderElement(pizza);
+		return testOrder;
 	} 
 
 }
