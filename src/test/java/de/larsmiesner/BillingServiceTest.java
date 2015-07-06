@@ -5,13 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import de.larsmiesner.TestKlasse;
+import de.larsmiesner.BillingService;
 import de.larsmiesner.objects.CreditCard;
 import de.larsmiesner.objects.Order;
 import de.larsmiesner.objects.OrderElement;
 import de.larsmiesner.objects.Recipt;
 
-public class TestKlasseTest {
+public class BillingServiceTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -36,7 +36,7 @@ public class TestKlasseTest {
 		
 		CreditCard testCard = new CreditCard();
 		
-		TestKlasse t = new TestKlasse();
+		BillingService t = new BillingService();
 		Recipt recipt = t.chargeOrder(testCard, testOrder);
 		
 		assertNotNull(recipt);
