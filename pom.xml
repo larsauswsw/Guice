@@ -26,10 +26,15 @@
 			<version>2.7</version>
 			<type>maven-plugin</type>
 		</dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<!-- sourceDirectory>src</sourceDirectory-->
+		<!-- sourceDirectory>src</sourceDirectory -->
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
