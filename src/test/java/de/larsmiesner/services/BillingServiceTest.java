@@ -40,10 +40,69 @@ public class BillingServiceTest {
 	}
 	
 	@Test
-	public void testOrderWithWrongCreditCard(){
+	public void testOrderWithWrongCreditCardNumber(){
 		Order testOrder = setupOrder();
 		CreditCard testCard = new CreditCard();
 		testCard.setNumber("XXXXXXX");
+		testCard.setCvc(987);
+		
+		BillingService t = new BillingService();
+		Recipt recipt = t.chargeOrder(testCard, testOrder);
+		
+		assertNotNull(recipt);
+		assertEquals(Status.ERROR, recipt.getStatus());
+		
+	}
+	
+	@Test
+	public void testOrderWithWrongCreditCardNumberCVC(){
+		Order testOrder = setupOrder();
+		CreditCard testCard = new CreditCard();
+		testCard.setNumber("XXXXXXX");
+		testCard.setCvc(0);
+		
+		BillingService t = new BillingService();
+		Recipt recipt = t.chargeOrder(testCard, testOrder);
+		
+		assertNotNull(recipt);
+		assertEquals(Status.ERROR, recipt.getStatus());
+		
+	}
+	
+	@Test
+	public void testOrderWithNoCreditCardNumberAndWrongCVC(){
+		Order testOrder = setupOrder();
+		CreditCard testCard = new CreditCard();
+		testCard.setCvc(0);
+		
+		BillingService t = new BillingService();
+		Recipt recipt = t.chargeOrder(testCard, testOrder);
+		
+		assertNotNull(recipt);
+		assertEquals(Status.ERROR, recipt.getStatus());
+		
+	}
+	
+	@Test
+	public void testOrderWithNoCreditCardNumberAndWrongCVC2(){
+		Order testOrder = setupOrder();
+		CreditCard testCard = new CreditCard();
+		testCard.setNumber("5493365801128630");
+		testCard.setCvc(1000);
+		
+		BillingService t = new BillingService();
+		Recipt recipt = t.chargeOrder(testCard, testOrder);
+		
+		assertNotNull(recipt);
+		assertEquals(Status.ERROR, recipt.getStatus());
+		
+	}
+	
+	@Test
+	public void testOrderWithWrongCreditCardNumberAndWorngCVC(){
+		Order testOrder = setupOrder();
+		CreditCard testCard = new CreditCard();
+		testCard.setNumber("5493365801128630");
 		testCard.setCvc(0);
 		
 		BillingService t = new BillingService();
