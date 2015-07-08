@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+//import static org.mockito.Mockito.*;
 
 import de.larsmiesner.objects.CreditCard;
 import de.larsmiesner.Status;
@@ -65,5 +66,9 @@ public class BillingServiceTest {
 		testOrder.addOrderElement(pizza);
 		return testOrder;
 	} 
+	
+	// Mocking
+	// BillingService t = mock(BillingService.class);
+	// when(t.chargeOrder(testCard, testOrder)).thenReturn(new Recipt());
 
 }
